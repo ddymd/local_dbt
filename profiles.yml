@@ -1,0 +1,36 @@
+bg-de-zoomcamp:
+  outputs:
+    dev:
+      dataset: dbt_victoria_mola
+      keyfile: my_key_file.json
+      method: service-account
+      project: taxi-rides-ny
+      threads: 4
+      type: bigquery
+  target: dev
+pg-dbt-workshop:
+  outputs:
+    dev:
+      dbname: zoomcamp
+      host: 192.168.1.102
+      keepalives_idle: 0
+      password: pgdb-123
+      port: 5433
+      schema: dbt_victoria_mola
+      threads: 4
+      type: postgres
+      user: admin
+  target: dev
+taxi_rides_ny:
+  outputs:
+    dev:
+      dataset: trip_data_all
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      location: US
+      method: oauth
+      priority: interactive
+      project: zoomcampbq
+      threads: 4
+      type: bigquery
+  target: dev
